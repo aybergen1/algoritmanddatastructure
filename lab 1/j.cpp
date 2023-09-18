@@ -1,13 +1,39 @@
 #include <iostream>
+#include <cmath>
 #include <deque>
 
 using namespace std;
 
+int main () {
 
-int main(){
-     char a;
-     int b;
-     deque<int> san;
-     
+    char s;
+    int x;
+    bool test = true;
+    deque<int> d;
+    while (test) {
+        cin >> s;
 
+        if (s == '+') {
+            cin >> x;
+            d.push_front(x);
+        }
+        if (s == '-') {
+            cin >> x;
+            d.push_back(x);
+        }
+        if (s == '*') {
+            if (d.empty()) {
+                cout << "error" <<endl;
+            }
+            else {
+            cout << d.front() + d.back() << endl;
+            if (!d.empty()) d.pop_front();
+            if (!d.empty()) d.pop_back();
+        }
+
+        }
+        if (s == '!') {
+            test = false;
+        }
+    }
 }
